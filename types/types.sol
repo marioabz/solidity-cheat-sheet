@@ -17,6 +17,7 @@ contract Types {
     // rules.
     bool public available;,
     bool public isMarketClosed;
+    bytes public gates;
 
     // uint and int are aliases for uint256 and int256, respectively.
     // For an integer tpye 'x', you can use tpye(X).min and type(X).max
@@ -31,5 +32,6 @@ contract Types {
         hardCap = _hardCap;
         available = _availability;
         isMarketClosed = !_availability;
+        gates = 1;
     }
 }
