@@ -4,6 +4,10 @@ pragma solidity ^7.0.0;
 // and data (its state) that resides at a specific address on the Ethereum
 // blockchain.
 
+// Every contract defines its own type. You can implicitly convert contracts
+// they inherit from.
+// Contracts don't support any operators.
+
 contract Types {
 
     // state variables are variables whose values are permanently 
