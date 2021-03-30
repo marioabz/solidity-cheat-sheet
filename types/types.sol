@@ -21,6 +21,11 @@ contract Types {
     // rules.
     bool public available;,
     bool public isMarketClosed;
+
+    // There are 2 types of representation of bytes: fixed-size and 
+    // dynamically-sized.
+    // Strings and bytes are stored as big endian.
+    // Other types (numbers, addresses, etc.) are stored as little endian.
     bytes public gates;
 
     // The address types comes in 2 flavors: address, and address payable.
@@ -51,7 +56,7 @@ contract Types {
     ) {
         hardCap = _hardCap;
         available = _availability;
-        isMarketClosed = !_availability;
+        isMarketClosed =  ~_availability;
         gates = 1;
         owner = msg.sender;
 
