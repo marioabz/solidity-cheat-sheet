@@ -26,6 +26,7 @@ contract Types {
     // dynamically-sized.
     // Strings and bytes are stored as big endian.
     // Other types (numbers, addresses, etc.) are stored as little endian.
+    // Use 'bytes' instead of 'bytes[]', it saves 31 bytes of space.
     bytes public gates;
 
     // The address types comes in 2 flavors: address, and address payable.
@@ -35,7 +36,7 @@ contract Types {
     // integer literals, bytes20 and contract types.
 
     // Only expressions of type 'address' and contract-type can be converted
-    // to the type 'address payable' via the explicit conversion 'payable(...)
+    // to the type 'address payable' via the explicit conversion 'payable(...)'.
     address public owner;
    
     // Implicit conversions from 'address payable' to 'address' are allowed,
@@ -59,6 +60,5 @@ contract Types {
         isMarketClosed =  ~_availability;
         gates = 1;
         owner = msg.sender;
-
     }
 }
