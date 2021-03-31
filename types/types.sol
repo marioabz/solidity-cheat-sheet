@@ -38,6 +38,11 @@ contract Types {
     // Only expressions of type 'address' and contract-type can be converted
     // to the type 'address payable' via the explicit conversion 'payable(...)'.
     address public owner;
+
+    // One can have a bytes[], bytes, bytes<N> (1 <= N <= 32).
+    // Fixed-sized byte arrays are always prefered since they are cheaper and //
+    // they can be passed as arguments to other contracts.
+    bytes4 public words
    
     // Implicit conversions from 'address payable' to 'address' are allowed,
     // whereas conversions from 'address' to 'address payable' must be
@@ -50,7 +55,7 @@ contract Types {
     uint public hardCap;
 
 
-    constructor(
+    constructor( 
         bool _availability,
         uint _hardCap,
         address owner,
