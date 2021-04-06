@@ -42,12 +42,12 @@ contract Types {
     // One can have a bytes[], bytes, bytes<N> (1 <= N <= 32).
     // Fixed-sized byte arrays are always prefered since they are cheaper and //
     // they can be passed as arguments to other contracts.
-    bytes4 public words
+    bytes4 public words;
    
     // Implicit conversions from 'address payable' to 'address' are allowed,
     // whereas conversions from 'address' to 'address payable' must be
     // explicit via 'payable(<address>)'
-    address payable public backupOwner
+    address payable public backupOwner;
 
     // uint and int are aliases for uint256 and int256, respectively.
     // For an integer tpye 'x', you can use tpye(X).min and type(X).max
@@ -58,7 +58,7 @@ contract Types {
     constructor( 
         bool _availability,
         uint _hardCap,
-        address owner,
+        address owner
     ) {
         hardCap = _hardCap;
         available = _availability;
@@ -66,4 +66,13 @@ contract Types {
         gates = 1;
         owner = msg.sender;
     }
+
+    // Modifiers change the way functions work.
+
+
+    // There are four types of Solidity functions: external, internal,
+    // public and private.
+    // Functions can be set as 'view' and 'pure' to restrict reading and
+    // modifying of the state.
+
 }
