@@ -75,4 +75,14 @@ contract Types {
     // Functions can be set as 'view' and 'pure' to restrict reading and
     // modifying of the state.
 
+    // Functions set to 'view' do not change the state.
+    // Functions set to 'pure' should not modify or read from the state.
+
+
+    // Modification of the state include:
+    // - creating other contracts,
+    // - making solidity transfer Ether through calls,
+    // - writing to state variables,
+    // -removing events.
+
 }
