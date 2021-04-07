@@ -19,7 +19,7 @@ contract Types {
 
     // The operators '||' and '&&' apply the common short-circuiting
     // rules.
-    bool public available;,
+    bool public available;
     bool public isMarketClosed;
 
     // There are 2 types of representation of bytes: fixed-size and 
@@ -53,6 +53,7 @@ contract Types {
     // For an integer tpye 'x', you can use tpye(X).min and type(X).max
     // to access minimum and maximum value representable by the type.
     uint public hardCap;
+    uint public totalSupply;
 
     // When a contract is created, its constructor (a function declared with the
     // 'constructor' keyword) is executed once.
@@ -64,6 +65,7 @@ contract Types {
     constructor( 
         bool _availability,
         uint _hardCap,
+        uint _totalSupply,
         address owner
     ) {
         hardCap = _hardCap;
@@ -71,13 +73,20 @@ contract Types {
         isMarketClosed =  ~_availability;
         gates = 1;
         owner = msg.sender;
+        totalSupply = _totalSupply;
     }
 
     // Modifiers change the way functions work.
-
+    modifier onlyOwner {
+        require(msg.sender == owner, "NEED OWNER");
+        _;
+    }
 
     // There are four types of visibilities for functions and state variables:
     // external, internal, public and private.
+    function getAmountLeftForHC() public view {
+        return hardCap - totalSupply;
+    }-
 
     // external: external functions are part of the contract interface, which
     // means they can be called from other contracts via transactions.
