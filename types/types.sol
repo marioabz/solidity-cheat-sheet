@@ -86,7 +86,13 @@ contract Types {
     // external, internal, public and private.
     function getAmountLeftForHC() public view {
         return hardCap - totalSupply;
-    }-
+    }
+
+    function mint(uint balance) external {
+        uint _supply = totalSupply + balance;
+        require(hardCap <= _supply_ && balance > 0, "TOTAL SUPPLY EXCEEDS HARDCAP");
+        totalSupply = _supply;
+    }
 
     // external: external functions are part of the contract interface, which
     // means they can be called from other contracts via transactions.
