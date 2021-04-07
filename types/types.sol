@@ -54,7 +54,13 @@ contract Types {
     // to access minimum and maximum value representable by the type.
     uint public hardCap;
 
-
+    // When a contract is created, its constructor (a function declared with the
+    // 'constructor' keyword) is executed once.
+    // A constructor is optional. Only one constructor is allowed.
+    // After the constructor has executed, the finalcode of the contract is
+    // deployed to the blockchain.
+    // Internally, constructor arguments are passed 'ABI encoded' after the code
+    // of the contract itself.
     constructor( 
         bool _availability,
         uint _hardCap,
@@ -70,8 +76,21 @@ contract Types {
     // Modifiers change the way functions work.
 
 
-    // There are four types of Solidity functions: external, internal,
-    // public and private.
+    // There are four types of visibilities for functions and state variables:
+    // external, internal, public and private.
+
+    // external: external functions are part of the contract interface, which
+    // means they can be called from other contracts via transactions.
+    // public: public functions are part of the contract interface and can be
+    // either called internally or via messages.
+    // internal: Those functions and state variables can only be accessed
+    // internally (from within the contract or contracts deriving from it),
+    // without using 'this'.
+    // private: private functions and state variables are only visible for the
+    // contract they are defined in and not in derived contracts.
+
+
+
     // Functions can be set as 'view' and 'pure' to restrict reading and
     // modifying of the state.
 
