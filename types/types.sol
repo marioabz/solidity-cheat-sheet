@@ -94,6 +94,10 @@ contract Types {
         totalSupply = _supply;
     }
 
+    function getMintFunctionSignature() pure returns (bytes memory){
+        return abi.encodeWithSignature("mint(uint)", 5);
+    }
+
     // external: external functions are part of the contract interface, which
     // means they can be called from other contracts via transactions.
     // public: public functions are part of the contract interface and can be
