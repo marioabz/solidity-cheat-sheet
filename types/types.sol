@@ -98,6 +98,10 @@ contract Types {
         return abi.encodeWithSignature("mint(uint)", 5);
     }
 
+     function encodeHardCapTotalSupply() public view returns (bytes memory) {
+        return abi.encode(hardCapp, totalSupply, owner);
+    }
+
     // external: external functions are part of the contract interface, which
     // means they can be called from other contracts via transactions.
     // public: public functions are part of the contract interface and can be
