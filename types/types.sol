@@ -38,6 +38,7 @@ contract Types {
     // Only expressions of type 'address' and contract-type can be converted
     // to the type 'address payable' via the explicit conversion 'payable(...)'.
     address public owner;
+    address public DAIcontract = 0x6b175474e89094c44da98b954eedeac495271d0f;
 
     // One can have a bytes[], bytes, bytes<N> (1 <= N <= 32).
     // Fixed-sized byte arrays are always prefered since they are cheaper and //
@@ -106,6 +107,12 @@ contract Types {
 
     function getMintFunctionSignature() public pure returns (bytes memory){
         return abi.encodeWithSignature("mint(uint)", 5);
+    }
+
+     function transferDAI(address to, uint amount) external returns(bool) {
+        signature = bytes("transfer(address,uint)");
+        bool success = DAIcontract.call(abi.encodeWithSignature(signature, to, amount));
+        return success;
     }
 
     // internal: Those functions and state variables can only be accessed
