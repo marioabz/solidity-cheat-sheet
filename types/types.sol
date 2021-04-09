@@ -79,11 +79,30 @@ contract Types {
         lastTransactionTime = block.timestamp;
     }
 
+    // Error handling: assert, require, revert
+    
+    // assert(bool condition): causes a Panic error and thus state change 
+    // reversion if the condition is not met - to be used for internal errors
+    // only.
+    
+    // require(bool condition, string memory msg): reverts if the condition is
+    // not met - to be used for errors in inputs or external components. Also
+    // provides an error message.
+
+    // revert(string memory reason): abort execution and revert state changes,
+    // providing an explanatory string.
+
     // Modifiers change the way functions work.
     modifier onlyOwner {
         require(msg.sender == owner, "NEED OWNER");
         _;
     }
+
+    // Modification of the state include:
+    // - creating other contracts,
+    // - making solidity transfer Ether through calls,
+    // - writing to state variables,
+    // -removing events.
 
     // There are four types of visibilities for functions and state variables:
     // external, internal, public and private.
@@ -130,13 +149,5 @@ contract Types {
     function setTransactionTime() internal {
         lastTransactionTime = block.timestamp;
     }
-
-    
-
-    // Modification of the state include:
-    // - creating other contracts,
-    // - making solidity transfer Ether through calls,
-    // - writing to state variables,
-    // -removing events.
 
 }
