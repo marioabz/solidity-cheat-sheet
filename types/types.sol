@@ -84,28 +84,30 @@ contract Types {
 
     // There are four types of visibilities for functions and state variables:
     // external, internal, public and private.
-    function getAmountLeftForHC() public view {
-        return hardCap - totalSupply;
-    }
-
+    
+    // external: external functions are part of the contract interface, which
+    // means they can be called from other contracts via transactions.
+    
+    // public: public functions are part of the contract interface and can be
+    // either called internally or via messages.
     function mint(uint balance) external {
         uint _supply = totalSupply + balance;
         require(hardCap <= _supply_ && balance > 0, "TOTAL SUPPLY EXCEEDS HARDCAP");
         totalSupply = _supply;
     }
 
-    function getMintFunctionSignature() pure returns (bytes memory){
-        return abi.encodeWithSignature("mint(uint)", 5);
+    function getAmountLeftForHC() public view {
+        return hardCap - totalSupply;
     }
 
-     function encodeHardCapTotalSupply() public view returns (bytes memory) {
+    function encodeHardCapTotalSupply() public view returns (bytes memory) {
         return abi.encode(hardCapp, totalSupply, owner);
     }
 
-    // external: external functions are part of the contract interface, which
-    // means they can be called from other contracts via transactions.
-    // public: public functions are part of the contract interface and can be
-    // either called internally or via messages.
+    function getMintFunctionSignature() public pure returns (bytes memory){
+        return abi.encodeWithSignature("mint(uint)", 5);
+    }
+
     // internal: Those functions and state variables can only be accessed
     // internally (from within the contract or contracts deriving from it),
     // without using 'this'.
