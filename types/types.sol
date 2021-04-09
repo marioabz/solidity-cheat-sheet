@@ -55,6 +55,7 @@ contract Types {
     // to access minimum and maximum value representable by the type.
     uint public hardCap;
     uint public totalSupply;
+    uint internal lastTransactionTime;
 
     // When a contract is created, its constructor (a function declared with the
     // 'constructor' keyword) is executed once.
@@ -75,6 +76,7 @@ contract Types {
         gates = 1;
         owner = msg.sender;
         totalSupply = _totalSupply;
+        lastTransactionTime = block.timestamp;
     }
 
     // Modifiers change the way functions work.
@@ -97,6 +99,16 @@ contract Types {
         totalSupply = _supply;
     }
 
+    function transferDAI(address to, uint amount) external returns(bool) {
+        signature = bytes("transfer(address,uint)");
+        bool success = DAIcontract.call(abi.encodeWithSignature(signature, to, amount));
+        return success;
+    }
+
+    // Functions can be set as 'view' and 'pure' to restrict reading and
+    // modifying of the state.
+    // Functions set to 'view' do not change the state.
+    // Functions set to 'pure' should not modify or read from the state.
     function getAmountLeftForHC() public view {
         return hardCap - totalSupply;
     }
@@ -109,26 +121,17 @@ contract Types {
         return abi.encodeWithSignature("mint(uint)", 5);
     }
 
-     function transferDAI(address to, uint amount) external returns(bool) {
-        signature = bytes("transfer(address,uint)");
-        bool success = DAIcontract.call(abi.encodeWithSignature(signature, to, amount));
-        return success;
-    }
-
     // internal: Those functions and state variables can only be accessed
     // internally (from within the contract or contracts deriving from it),
     // without using 'this'.
     // private: private functions and state variables are only visible for the
     // contract they are defined in and not in derived contracts.
 
+    function setTransactionTime() internal {
+        lastTransactionTime = block.timestamp;
+    }
 
-
-    // Functions can be set as 'view' and 'pure' to restrict reading and
-    // modifying of the state.
-
-    // Functions set to 'view' do not change the state.
-    // Functions set to 'pure' should not modify or read from the state.
-
+    
 
     // Modification of the state include:
     // - creating other contracts,
