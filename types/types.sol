@@ -28,6 +28,8 @@ contract Types {
     // Other types (numbers, addresses, etc.) are stored as little endian.
     // Use 'bytes' instead of 'bytes[]', it saves 31 bytes of space.
     bytes public gates;
+    string private symbol;
+    string private ID;
 
     // The address types comes in 2 flavors: address, and address payable.
     // 'address payable' has 'transfer' and 'send' as aditional members.
@@ -148,6 +150,10 @@ contract Types {
 
     function setTransactionTime() internal {
         lastTransactionTime = block.timestamp;
+    }
+
+    function changeID() private {
+        ID = sha256(abi.encode(owner, block.timestamp));
     }
 
 }
