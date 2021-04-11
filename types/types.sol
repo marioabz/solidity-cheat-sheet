@@ -147,7 +147,6 @@ contract Types {
     // without using 'this'.
     // private: private functions and state variables are only visible for the
     // contract they are defined in and not in derived contracts.
-
     function setTransactionTime() internal {
         lastTransactionTime = block.timestamp;
     }
