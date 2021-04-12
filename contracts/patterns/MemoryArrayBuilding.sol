@@ -26,4 +26,17 @@ contract MemoryArrayBuilding {
     }
 
     Item[] public items;
+    mapping(address => uint) public ownerItemCount;
+ 
+    function getItemIDsByOwner(address _owner) public view returns (uint[] memory) {
+        uint[] memory result = new uint[](ownerItemCount[_owner]);
+        uint counter = 0;
+        for (uint i=0; i<items.length; i++) {
+            if (items[i].owner == _owner) {
+                result[counter] = i;
+                counter++;
+            }
+        }
+        return result;
+    }
 }
