@@ -16,4 +16,14 @@ pragma solidity ^0.8.0;
 // would lead to the need for a gas intensive transaction.
 
 contract MemoryArrayBuilding {
+
+    struct Item {
+        string name;
+        string category;
+        address owner;
+        uint32 zipcode;
+        uint32 price;
+    }
+
+    Item[] public items;
 }
