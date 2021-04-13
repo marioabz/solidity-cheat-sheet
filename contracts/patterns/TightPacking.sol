@@ -33,5 +33,4 @@ contract TightlyPackedData {
         _myStruct = TightlyPackedStruct(1,2,3,4,"a","b","c","d");
         MyTPS = _myStruct;
     }
-
 }
