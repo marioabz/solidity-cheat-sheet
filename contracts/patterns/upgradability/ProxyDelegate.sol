@@ -34,6 +34,13 @@ contract ProxyDelegate {
 // A delegate call is used to execute functions at a delegate in the context
 // of the proxy and without having to know the function identifiers, because
 // 'delegatecall' forwards the msg.data, containing the function identifier
-// in the first 4 bytes.
+// in the first 4 bytes. In order to trigger the forwarding mechanism for
+// every function call, it is placed in the proxy contract's fallback function.
+// Unfortunately a 'delegatecall' only returns a boolean variable, signaling
+// the execution outcome. When using the call in the context of a proxy,
+// however, we are interested in the actual return value of the function call.
+// To overcome this limitation, inline assembly (inline assembly allows for 
+// more precise control over the stack machine, with a language similar to the
+// one used by the EVM and can be used within solidity code).
 
 }
