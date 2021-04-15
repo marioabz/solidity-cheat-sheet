@@ -30,4 +30,10 @@ contract ProxyDelegate {
 // itself in a variable, or in case the 'Ethernal Storage' pattern is used,
 // consult the external storage for the current address.
 
+// Implementation
+// A delegate call is used to execute functions at a delegate in the context
+// of the proxy and without having to know the function identifiers, because
+// 'delegatecall' forwards the msg.data, containing the function identifier
+// in the first 4 bytes.
+
 }
