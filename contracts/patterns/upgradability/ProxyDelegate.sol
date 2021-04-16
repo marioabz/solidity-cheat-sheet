@@ -43,6 +43,9 @@ contract ProxyDelegate {
 // more precise control over the stack machine, with a language similar to the
 // one used by the EVM and can be used within solidity code).
 
+// There are several implications that should be considered when using the
+// proxy Delegate patterns for achieving upgradeability.
+
     address delegate;
     address owner = msg.sender;
 
