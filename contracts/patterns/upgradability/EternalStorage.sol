@@ -10,7 +10,6 @@ pragma solidity ^0.8.0;
 // The solution consists of separatings the storage from the contract
 // logic. A separate contract with the sole purpose of acting as a
 // storage to another contract
-
 contract EternalStorage {
 
 
