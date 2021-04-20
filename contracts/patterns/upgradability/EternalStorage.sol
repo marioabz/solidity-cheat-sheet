@@ -9,7 +9,9 @@ pragma solidity ^0.8.0;
 // address.
 // The solution consists of separatings the storage from the contract
 // logic. A separate contract with the sole purpose of acting as a
-// storage to another contract
+// storage to another contract.
+// The storage is supposed to last over the whole  lifetime of the
+// initial contract, therefore the name eternal storage.
 contract EternalStorage {
 
 
