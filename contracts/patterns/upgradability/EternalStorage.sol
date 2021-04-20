@@ -14,5 +14,11 @@ pragma solidity ^0.8.0;
 // initial contract, therefore the name eternal storage.
 contract EternalStorage {
 
+// Use the Eternal Storage pattern when:
+// - your contract is upgreadable and should retain storage after
+// an upgrade,
+// - you want to avoid problems migrating storage after a contract
+// upgrade,
+// - you can accept a slightly more complex syntax for storing data
 
 }
