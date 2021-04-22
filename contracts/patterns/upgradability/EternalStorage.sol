@@ -28,6 +28,12 @@ contract EternalStorage {
 // possible. 
 // This flexibility is achieved by implementing several mappings, one
 // for each data type, in which data can be stored. These mappings map
-// the abstracted down value to a certain sha3 hash. acting as a
+// the abstracted down value to a certain sha3 hash acting as a
 // key-value storage.
+
+// A sha3 hash is used as the key , in order to allow identifiers of
+// arbitrary length to be used as keys. Using hashed as keys also enables
+// the storage of complicated data types, like mappings (using
+// keccak256('balances', 'UserID123') as the key for storing the balance
+// of the user with the ID 123).
 }
