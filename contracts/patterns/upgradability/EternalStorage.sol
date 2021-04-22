@@ -36,4 +36,16 @@ contract EternalStorage {
 // the storage of complicated data types, like mappings (using
 // keccak256('balances', 'UserID123') as the key for storing the balance
 // of the user with the ID 123).
+
+// Each mapping should be equipped with three functions to manage storage
+// retrieval and deletion. The storage function stores a provided value
+// and the associated key in the respective mapping, depending on the
+// data type of the value.
+// Because the functions for storage and deletion are affecting the
+// contract state, they should be guarded by the Access Restriction
+// pattern, so access is only allowed from the most recent version of the
+// contract using the eternal storage. The address of the current version
+// can be stored in a variable and should only be changeable by authorized
+// addresses.
+
 }
