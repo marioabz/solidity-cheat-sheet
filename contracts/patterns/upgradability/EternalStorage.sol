@@ -21,4 +21,10 @@ contract EternalStorage {
 // upgrade,
 // - you can accept a slightly more complex syntax for storing data
 
+// It would be possible to implement this pattern with a rigid
+// representation of the needed storage, by implementing only the 
+// currently used data types in the eternal storage. To avoid upgrades
+// to the data store, however, it should be designed as flexible  as
+// possible. 
+
 }
