@@ -54,4 +54,14 @@ contract EternalStorage {
     mapping(bytes32 => uint) uIntStorage;
     mapping(bytes32 => address) addressStorage;
 
+    modifier onlyLatestVersion() {
+        require(msg.sender == latestVersion);
+        _;
+    }
+
+    function upgradeVersion(address _newVersion) public{
+        require(msg.sender == owner);
+        latestVersion = _newVersion;
+    }
+
 }
