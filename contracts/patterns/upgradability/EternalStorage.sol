@@ -48,4 +48,10 @@ contract EternalStorage {
 // can be stored in a variable and should only be changeable by authorized
 // addresses.
 
+    address owner = msg.sender;
+    address latestVersion;
+
+    mapping(bytes32 => uint) uIntStorage;
+    mapping(bytes32 => address) addressStorage;
+
 }
