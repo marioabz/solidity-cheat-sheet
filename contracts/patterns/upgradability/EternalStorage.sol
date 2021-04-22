@@ -26,5 +26,8 @@ contract EternalStorage {
 // currently used data types in the eternal storage. To avoid upgrades
 // to the data store, however, it should be designed as flexible  as
 // possible. 
-
+// This flexibility is achieved by implementing several mappings, one
+// for each data type, in which data can be stored. These mappings map
+// the abstracted down value to a certain sha3 hash. acting as a
+// key-value storage.
 }
