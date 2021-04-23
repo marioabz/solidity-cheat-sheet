@@ -64,4 +64,8 @@ contract EternalStorage {
         latestVersion = _newVersion;
     }
 
+    // ***** Getter methods *****
+    function getUint32(bytes32 _key) external view returns(uint) {
+        return uIntStorage[_key];
+    }
 }
