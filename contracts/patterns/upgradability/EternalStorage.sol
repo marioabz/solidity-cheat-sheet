@@ -81,4 +81,9 @@ contract EternalStorage {
     function setAddress(bytes32 _key, address _value) onlyLatestVersion external {
         addressStorage[_key] = _value;
     }
+
+    // ***** Delete methods *****
+    function deleteUint(bytes32 _key) onlyLatestVersion external {
+        delete uIntStorage[_key];
+    }
 }
