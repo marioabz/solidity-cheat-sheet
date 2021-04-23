@@ -77,4 +77,8 @@ contract EternalStorage {
     function setUint(bytes32 _key, uint _value) onlyLatestVersion external {
         uIntStorage[_key] = _value;
     }
+
+    function setAddress(bytes32 _key, address _value) onlyLatestVersion external {
+        addressStorage[_key] = _value;
+    }
 }
