@@ -72,4 +72,9 @@ contract EternalStorage {
     function getAddress(bytes32 _key) external view returns(address) {
         return addressStorage[_key];
     }
+
+    // ***** Setter methods *****
+    function setUint(bytes32 _key, uint _value) onlyLatestVersion external {
+        uIntStorage[_key] = _value;
+    }
 }
