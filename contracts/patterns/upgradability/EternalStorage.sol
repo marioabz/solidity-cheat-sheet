@@ -86,4 +86,8 @@ contract EternalStorage {
     function deleteUint(bytes32 _key) onlyLatestVersion external {
         delete uIntStorage[_key];
     }
+
+    function deleteAddress(bytes32 _key) onlyLatestVersion external {
+        delete addressStorage[_key];
+    }
 }
