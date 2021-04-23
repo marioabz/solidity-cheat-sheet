@@ -68,4 +68,8 @@ contract EternalStorage {
     function getUint32(bytes32 _key) external view returns(uint) {
         return uIntStorage[_key];
     }
+
+    function getAddress(bytes32 _key) external view returns(address) {
+        return addressStorage[_key];
+    }
 }
