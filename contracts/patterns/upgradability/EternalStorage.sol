@@ -90,4 +90,8 @@ contract EternalStorage {
     function deleteAddress(bytes32 _key) onlyLatestVersion external {
         delete addressStorage[_key];
     }
+
+// Administration could be implemented in several other ways, for example
+// to authorize several addresses, or let an autonomous organization take
+// the role of the owner.
 }
