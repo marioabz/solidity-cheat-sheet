@@ -97,5 +97,8 @@ contract EternalStorage {
 
 // The upgradeable contract that uses the eternal storage, can implement 
 // wrappers to facilitate dealing with the unfamiliar syntax using hashes
-// as keys
+// as keys. The following code shows three exemplary wrappers to help
+// manage user balances.
+
+    function
 }
