@@ -94,4 +94,8 @@ contract EternalStorage {
 // Administration could be implemented in several other ways, for example
 // to authorize several addresses, or let an autonomous organization take
 // the role of the owner.
+
+// The upgradeable contract that uses the eternal storage, can implement 
+// wrappers to facilitate dealing with the unfamiliar syntax using hashes
+// as keys
 }
